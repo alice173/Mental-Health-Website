@@ -1,16 +1,17 @@
 /* custom properties */
 
 :root {
-  --green: 131 31 69;
+  
+  --green: 131 14 56;
   --beige: 62 41 88;
   --pink: 11 38 68;
   --beige-light: 64 60 95;
-  --black: black;
+  --black: 132 12 8;
 
   /* colour intentions */
   --background: linear-gradient(to top, hsl(var(--beige)) , transparent);;
   --textColour: var(--black);
-  --textColour-inverse: var(var(--beige-light));
+  --textColour-inverse: hsl(var(--beige-light));
   --textLink: hsl(var(--green));
   --lineColour: hsl(var(--beige));
 
@@ -23,13 +24,13 @@
 
   /* font sizes */
 
-  --fs-sm: clamp(0.7rem, 0.35vw + 0.61rem, 0.89rem);
-  --fs-base: clamp(0.88rem, 0.57vw + 0.73rem, 1.19rem);
-  --fs-md: clamp(1.09rem, 0.89vw + 0.87rem, 1.58rem);
-  --fs-lg: clamp(1.37rem, 1.35vw + 1.03rem, 2.11rem);
-  --fs-xl: clamp(1.71rem, 2.01vw + 1.21rem, 2.81rem);
-  --fs-xxl: clamp(2.14rem, 2.93vw + 1.4rem, 3.75rem);
-  --fs-xxxl: clamp(2.67rem, 4.23vw + 1.61rem, 5rem);
+  --fs-sm: clamp(0.8rem, 0.18vi + 0.75rem, 0.9rem);
+  --fs-base: clamp(1rem, 0.23vi + 0.94rem, 1.13rem);
+  --fs-md: clamp(1.25rem, 0.28vi + 1.18rem, 1.41rem);
+  --fs-lg: clamp(1.56rem, 0.36vi + 1.47rem, 1.76rem);
+  --fs-xl: clamp(1.95rem, 0.44vi + 1.84rem, 2.2rem);
+  --fs-xxl: clamp(2.44rem, 0.55vi + 2.3rem, 2.75rem);
+  --fs-xxxl: clamp(3.05rem, 0.69vi + 2.88rem, 3.43rem);
 
   /* spacing */
   --space-xs: clamp(0.88rem, 0.23vw + 0.82rem, 1rem);
@@ -90,6 +91,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-size: var(--fs-base);
 }
 
 /* A elements that don't have a class get default styles */
@@ -195,4 +197,22 @@ body{
   font-family: var(--font-body);
   background: var(--background);
  
+}
+
+.hero {
+  background-image: linear-gradient(to right, hsla(var(--black)/ 0.9), hsla(var(--black)/ 0.7)), url(images/pexels-riciardus-185801.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right bottom;
+  height: 80vh;
+  color: var(--textColour-inverse);
+  padding: var(--space-xxl);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1;
+  
+    & h1, p {
+      grid-column: 1;
+      grid-row: 1;
+    }
 }
