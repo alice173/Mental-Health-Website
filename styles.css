@@ -386,7 +386,7 @@ nav {
 
 }
 
-@container card (min-width: 400px) {
+@container card (min-width: 800px) {
   .card {
    display: grid;
    grid-template-columns: 2fr 3fr;

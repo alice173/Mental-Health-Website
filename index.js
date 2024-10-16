@@ -17,6 +17,27 @@ function swapContent() {
       button.addEventListener("click", swapContent);
     });
   }
+
+  function showList(){
+    document.querySelector(".card--list").style.display = "block"
+  }
+  function applySmallScreenBehavior() {
+    if (window.innerWidth <= 600) {
+      swapButtons.forEach(button => {
+        button.addEventListener("click", swapContent);
+      });
+      // Add small screen specific behavior
+      // Example: alert user
+      alert('Small screen behavior activated!');
+    } else {
+      // Reapply default behavior if needed
+      swapButtons.forEach(button => {
+        button.addEventListener("click", showList);
+      });
+    }
+  }
   
-  // Initially attach event listeners
-attachSwapButtons();
+  window.addEventListener('resize', applySmallScreenBehavior);
+  applySmallScreenBehavior();  // Check initial screen size
+  attachSwapButtons();
+  
