@@ -10,7 +10,7 @@
   /* colour intentions */
   --background: linear-gradient(to top, hsl(var(--beige)), transparent);
   --textColour: hsl(var(--black));
-  --textColour-inverse: hsl(var(--beige-light));
+  --textColour-inverse: hsl(var(--beige));
   --textLink: hsl(var(--green));
   --lineColour: hsl(var(--beige));
 
@@ -163,7 +163,7 @@ section {
 }
 
 .equal-grid {
-  --max-width: 20rem;
+  --max-width: 25rem;
   --gap: var(--space-xl);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--max-width), 1fr));
@@ -172,18 +172,6 @@ section {
 
 /* typography */
 
-.letter-spacing-1 {
-  letter-spacing: 4.75px;
-}
-.letter-spacing-2 {
-  letter-spacing: 2.7px;
-}
-.letter-spacing-3 {
-  letter-spacing: 2.35px;
-}
-.uppercase {
-  text-transform: uppercase;
-}
 
 .fs-xs {
   font-size: var(--fs-xs);
@@ -285,7 +273,7 @@ body {
       color-mix(in hsl, hsl(var(--green)), black 50%),
       color-mix(in hsl, hsl(var(--green) / 0.7), black 40%)
     ),
-    url(images/pexels-riciardus-185801.jpg);
+    url(images/woman-watchin-sea.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right bottom;
@@ -349,17 +337,23 @@ nav {
 .card {
   
   font-size: var(--fs-sm);
+  color: var(--textColour-inverse);
   border: var(--border);
   border-radius: var(--border-radius);
   padding: var(--space-md);
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(to bottom, color-mix(in hsl, hsl(var(--beige-light)/0.5), black 50%), color-mix(in hsl, hsl(var(--beige)/0.8), black 30%));
+  background-image: linear-gradient(to bottom, color-mix(in hsl, hsl(var(--beige-light)/0.7), black 50%), color-mix(in hsl, hsl(var(--beige)/0.8), black 50%));
   box-shadow: var(--box-shadow-1);
+  display: grid;
+  grid-template-rows: min-content min-content 1fr;
+  gap: var(--space-md);
 
-  & * + * {
-    margin-block-start: var(--space-md);
+  p, button {
+    color: var(--textColour-inverse);
   }
+
+
   .card--heading {
     font-size: var(--fs-md);
 
@@ -382,6 +376,10 @@ nav {
     background: none;
     border: none;
     padding: 0;
+    margin-block-start: auto;
+    margin-inline-end: auto;
+    
+    
 
   }
 
@@ -397,6 +395,11 @@ nav {
    padding-inline-end: var(--space-xl);
    padding-block: var(--space-xl);
    background-image: var(--background);
+   color: var(--textColour);
+
+   p {
+    color: var(--textColour);
+   }
 
    .card--img {
     grid-column: 1 /1;
@@ -419,6 +422,6 @@ nav {
   
 }
 
-.large-card {
+.card-container {
   grid-column: 1/-1;
 }
