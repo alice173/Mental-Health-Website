@@ -13,6 +13,7 @@
   --textColour-inverse: hsl(var(--beige));
   --textLink: hsl(var(--green));
   --lineColour: hsl(var(--beige));
+  --quoteColour: hsl(var(--pink));
 
   --font-display: "Merriweather", serif;
   --font-body: "Karla", sans-serif;
@@ -135,7 +136,7 @@ select {
 .layout, .full-content {
   --gap: clamp(1rem, 6vw, 3rem);
   --full: minmax(var(--gap), 1fr);
-  --small: min(50ch, 100% - var(--gap) * 2);
+  --small: min(60ch, 100% - var(--gap) * 2);
   --content: minmax(0, 40ch);
   --breakout: minmax(0, 20ch);
 
@@ -155,7 +156,7 @@ select {
   grid-column: content;
 }
 
-.layout > .small {
+.small {
   grid-column: small;
 }
 .layout > .full, .full-content {
@@ -455,4 +456,53 @@ nav {
 
 .card-container {
   grid-column: 1/-1;
+}
+
+/* quote section */
+
+.quote--wrapper {
+  position: relative;
+
+}
+
+.quote--text {
+  color:var(--quoteColour);
+  font-size: var(--fs-xl);
+  font-style: italic;
+  text-align: center;
+  display: block;
+}
+
+.quote--title {
+  color: color-mix(in hsl, var(--quoteColour), black 50%);
+  font-size: var(--fs-lg);
+  text-align: right;
+;
+}
+
+.arrow{
+  position: absolute;
+  top: 50%;
+  background: transparent;
+  border: none;
+  height: 32px;
+  width: 32px;
+  margin: 0;
+  padding: 0;
+  
+  
+}
+
+.previous-button {
+  left: 0;
+  translate: -100px -120%;
+
+}
+
+.next-button {
+  right: 0;
+  transform: rotate(180deg);
+  translate: 100px -120%;
+
+
 }
