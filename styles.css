@@ -132,38 +132,50 @@ select {
 
 /*layout */
 
-.layout {
+.layout, .full-content {
   --gap: clamp(1rem, 6vw, 3rem);
   --full: minmax(var(--gap), 1fr);
   --small: min(50ch, 100% - var(--gap) * 2);
-  --content: minmax(0, 10ch);
+  --content: minmax(0, 40ch);
+  --breakout: minmax(0, 20ch);
 
   display: grid;
   grid-template-columns:
-    [full-start] var(--full)
+    [full-start] var(--full) [breakout-start] var(--breakout)
     [content-start] var(--content)
     [small-start] var(--small) [small-end]
-    var(--content) [content-end]
+    var(--content) [content-end] var(--breakout) [breakout-end]
     var(--full) [full-end];
 }
 
-.layout > * {
+
+.layout > *,
+.full-content > *,
+.breakout > * {
   grid-column: content;
 }
 
-.small {
+.layout > .small {
   grid-column: small;
 }
-.full {
+.layout > .full, .full-content {
   grid-column: full;
 }
 
+.layout > .breakout {
+  grid-column: breakout;
+}
+
+
+
+
 section {
-  margin-block: var(--space-xxl);
+  padding-block: var(--space-xxl);
+
 }
 
 .equal-grid {
-  --max-width: 25rem;
+  --max-width: 20rem;
   --gap: var(--space-xl);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--max-width), 1fr));
@@ -279,19 +291,32 @@ body {
   background-position: right bottom;
   height: 80vh;
   color: var(--textColour-inverse);
-  padding: var(--space-xxl);
+  padding-block: var(--space-xxl);
   display: grid;
-  grid-template-columns: 3fr 5fr;
   grid-template-rows: 1fr min-content min-content 1fr;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-2);
 
   & h1 {
     grid-row: 2;
+    
   }
 
   & p {
     grid-row: 3;
     color: var(--textColour-inverse);
+    grid-column: content;
+  
   }
+
+  & p, h1 {
+    grid-column: content;
+    width: 40%;
+  }
+}
+
+.breakout p {
+  grid-column: content;
 }
 
 nav {
@@ -303,9 +328,15 @@ nav {
   backdrop-filter: blur(10px);
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: space-between;
+  
   padding-block: var(--space-sm);
+
+  .nav--wrapper {
+ display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  }
 
   ul {
     display: flex;
@@ -326,7 +357,7 @@ nav {
 /* cards */
 
 .card--grid {
-  margin: var(--space-xxl);
+
   
 }
 
