@@ -19,13 +19,13 @@
         <img src="images/dark-mode.svg" />
         <ul role="presentation">
           <li>
-            <a href="#signs" aria-label="Learn about various signs" class="link-text nav-lin">Signs and symptons</a>
+            <a href="#signs" aria-label="Learn about various signs" class="link-text nav-link">Signs and symptons</a>
           </li>
           <li>
             <a
               href="#inspiration"
               aria-label="Find inspirational content and ideas"
-              class="link-text nav-lin"
+              class="link-text nav-link"
               >Inspiration</a
             >
           </li>
@@ -37,11 +37,7 @@
               >Helpful Links</a
             >
           </li>
-          <li>
-            <a href="#more-info" class="link-text nav-lin" aria-label="Get more information and resources"
-              >More Info</a
-            >
-          </li>
+         
         </ul></div>
       </nav>
 
@@ -49,11 +45,13 @@
       <p class="fs-md">Understanding Mental Health, One Step at a Time</p>
     </header>
     <main class="full layout">
-    <section class="signs">
+    <section class="signs" id="signs">
+      <h2 class="mb-lg">Signs and Symptons</h2>
+      <p class="sub-heading mb-xxl">Below are some of the most common mental health issues and some tips on how to manage them</p>
       <div class="card--grid equal-grid">
         <div class="card-container">
           <div class="card large-card small-card"><img src="images/person-by-water.jpg" alt="" class="card--img">
-          <h2 class="card--heading">Recognising Anxiety</h2>
+          <h3 class="card--heading">Recognising Anxiety</h3>
           <p>
             Anxiety can feel like a constant state of worry, even about everyday
             things. It might show up as a racing heart, trouble concentrating,
@@ -95,7 +93,7 @@
 
         <div class="card small-card">
           <img src="images/clasped-hands.jpg" alt="" class="card--img">
-          <h2 class="card--heading">Understanding Depression</h2>
+          <h3 class="card--heading">Understanding Depression</h3>
           <p>
             Depression goes beyond feeling sad—it's a persistent sense of
             hopelessness that can drain your energy and make it hard to enjoy
@@ -135,7 +133,7 @@
         </div>
         <div class="card small-card">
           <img src="images/poppies.jpg" alt="" class="card--img">
-          <h2 class="card--heading">Spotting Burnout</h2>
+          <h3 class="card--heading">Spotting Burnout</h3>
           <p>
             Burnout often comes from feeling overwhelmed at work, school, or
             even in daily life. It might look like feeling constantly exhausted,
@@ -176,7 +174,7 @@
 
         <div class="card small-card">
           <img src="images/woman-watchin-sea.jpg" alt="" class="card--img">
-          <h2 class="card--heading">Signs of Chronic Stress</h2>
+          <h3 class="card--heading">Signs of Chronic Stress</h3>
           <p>
             Stress is a normal part of life, but when it becomes chronic, it can
             impact your body and mind in lasting ways. Symptoms might include
@@ -218,13 +216,17 @@
         </div>
       </div></section>
     </section>
-    <section class="quotes small">
-      <div class="quote--wrapper"><q class="quote--text mb-lg">You are stronger than you know. More capable than you ever dreamed. And you are loved more than you could possibly imagine.</q>
+    <section class="quotes full-content" id="inspiration">
+      <h2 class="mb-lg">Inspiration</h2>
+      <p class="sub-heading mb-xxl">Scroll through the quotes to find comfort and inspiration</p>
+      <div class="quote--wrapper small"><q class="quote--text mb-lg">You are stronger than you know. More capable than you ever dreamed. And you are loved more than you could possibly imagine.</q>
       <p class="quote--title">Unkown</p>
       <button class="arrow next-button"><img  src="images/arrow_back.svg"/></button>
       <button class=" arrow back-button"><img  src="images/arrow_back.svg"/></button> </div>
     </section>
-    <section class="link--section">
+    <section class="link--section" id="helpful-links">
+      <h2 class="mb-lg">Helpful Links</h2>
+      <p class="sub-heading mb-xxl">The following organisations offer help and support to those struggling with mental health issues</p>
       <ul class="mental-health-organisations equal-grid">
         <li class="organisation">
             <p><strong>Mind</strong> A leading mental health charity offering information and support for people experiencing mental health issues.</p>
