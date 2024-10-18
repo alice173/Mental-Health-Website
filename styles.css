@@ -302,6 +302,7 @@ body {
   background-size: cover;
   background-position: right bottom;
   height: 80vh;
+  max-width: 100%;
   color: var(--textColour-inverse);
   padding-block: var(--space-xxl);
   display: grid;
@@ -316,19 +317,17 @@ body {
   & p {
     grid-row: 3;
     color: var(--textColour-inverse);
-    grid-column: content;
   }
 
   & p,
   h1 {
-    grid-column: content;
     width: 40%;
   }
 }
 
-.breakout > * {
+/* .breakout > * {
   grid-column: content;
-}
+} */
 
 /*navigation */
 
@@ -346,10 +345,6 @@ body {
   left: 0;
 
   padding-block: var(--space-sm);
-
-  button {
-    display: none;
-  }
 }
 nav {
   ul {
@@ -367,23 +362,54 @@ nav {
   }
 }
 
+.menu-button {
+  display: block;
+}
+.close-button {
+  display: none;
+}
+
 @media (max-width: 600px) {
   nav {
     position: fixed;
     inset: 0 0 0 0;
-    height: 100vh;
+    height: 50vh;
     padding: 3rem;
-    background-color: hsl(var(--darkpink));
+    background-color: var(--titleColour);
+    display: none;
+
     ul {
       flex-direction: column;
+      justify-content: center;
+      height: 100%;
     }
     li + li {
       margin-inline-start: 0;
     }
     li {
       margin-block-end: var(--space-md);
+
+      .link-text {
+        color: hsl(var(--beige));
+      }
     }
   }
+
+  .close-button {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    margin: 1rem;
+  }
+}
+
+.menu-button {
+  display: block;
+  border: none;
+  background: transparent;
 }
 
 /* cards */
@@ -522,15 +548,16 @@ nav {
 
 .quote--text {
   color: var(--quoteColour);
-  font-size: var(--fs-xl);
+  font-size: var(--fs-lg);
   font-style: italic;
   text-align: center;
   display: block;
+  padding-inline: var(--space-sm);
 }
 
 .quote--title {
   color: var(--titleColour);
-  font-size: var(--fs-lg);
+  font-size: var(--fs-md);
   text-align: right;
 }
 
@@ -539,8 +566,8 @@ nav {
   top: 50%;
   background: transparent;
   border: none;
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
   margin: 0;
   padding: 0;
 }
@@ -554,6 +581,15 @@ nav {
   right: 0;
   transform: rotate(180deg);
   translate: 100px -120%;
+}
+
+@media (max-width: 900px) {
+  .back-button {
+    translate: -20px -120%;
+  }
+  .next-button {
+    translate: 20px -120%;
+  }
 }
 
 /* link section */
@@ -652,4 +688,8 @@ nav {
 
 .button-14 {
   --btnBlend: color-mix(in hsl, var(--btnColor), black 30%);
+}
+
+body > * {
+  overflow: hidden;
 }

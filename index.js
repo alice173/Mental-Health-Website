@@ -1,3 +1,17 @@
+//Mobile navigation
+
+const primaryNav = document.getElementById("primary-navigation");
+const closeButton = document.querySelector(".close-button");
+const menuButton = document.querySelector(".menu-button");
+
+menuButton.addEventListener("click", () => {
+  primaryNav.style.display = "block";
+});
+
+closeButton.addEventListener("click", () => {
+  primaryNav.style.display = "none";
+});
+
 const largeCard = document.querySelector(".large-card");
 const swapButtons = document.querySelectorAll(".card--button");
 const signSection = document.querySelector(".signs");
@@ -165,5 +179,3 @@ backButton.addEventListener("click", showPreviousQuote);
 
 // Display the first random quote initially
 showNextQuote();
-
-//Mobile navigation
