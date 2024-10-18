@@ -16,12 +16,13 @@
   --lineColour: hsl(var(--beige));
   --quoteColour: hsl(var(--pink));
   --titleColour: var(--darkpink);
+  --btnColor: hsl(var(--green));
 
   --font-display: "Merriweather", serif;
   --font-body: "Karla", sans-serif;
 
   /*styles */
-  --border: 1px solid var(--lineColour);
+  --border: var(--lineWidth, 1px) solid var(--lineColour);
   --border-radius: 4px;
 
   /* font sizes */
@@ -413,6 +414,8 @@ nav {
     padding: 0;
     margin-block-start: auto;
     margin-inline-end: auto;
+    padding-block-end: .4rem;
+    border-bottom: 1px solid currentColor;
     
     
 
@@ -533,3 +536,104 @@ nav {
 
 
 }
+
+/* link section */
+
+.mental-health-organisations {
+  --max-width: 12rem;
+  list-style-type: none;
+}
+
+.organisation {
+  --line-width: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  border: var(--border);
+  padding: var(--space-sm);
+  border-radius: var(--border-radius);
+ 
+
+  strong {
+    display: block;
+    margin-block-end: var(--space-sm);
+    font-size: var(--fs-base);
+    color: var(--titleColour);
+    text-align: center;
+  }
+
+  p{
+    font-size: var(--fs-sm);
+  }
+}
+
+.button {
+  --textBlend:var(--textColour-inverse);
+  --btnBlend: var(--btnColor);
+  text-decoration: none;
+  color: var(--textBlend);
+  background: linear-gradient(to right, var(--btnBlend), var(--btnColor));
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-2);
+  text-decoration: none;
+  letter-spacing: 1.2px;
+  transition: 300ms ease color;
+  text-transform: uppercase;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+.button-1 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), white 35%);
+}
+
+.button-2 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), white 30%);
+}
+
+.button-3 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), white 25%);
+}
+
+.button-4 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), white 20%);
+}
+
+.button-5 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), white 15%);
+}
+
+.button-6 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), white 10%);
+}
+
+.button-7 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), white 5%);
+}
+
+.button-9 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), black 5%);
+}
+
+.button-10 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), black 10%);
+}
+
+.button-11 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), black 15%);
+}
+
+.button-12 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), black 20%);
+}
+
+.button-13 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), black 25%);
+}
+
+.button-14 {
+  --btnBlend: color-mix(in hsl, var(--btnColor), black 30%);
+}
+
