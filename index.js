@@ -5,7 +5,7 @@ function swapContent() {
   const smallCard = this.closest(".small-card");
   const screenWidth = window.innerWidth;
 
-  if (screenWidth > 600) {
+  if (screenWidth > 650) {
     const tempContent = largeCard.innerHTML;
     largeCard.innerHTML = smallCard.innerHTML;
     smallCard.innerHTML = tempContent;
@@ -34,6 +34,8 @@ const nextButton = document.querySelector(".next-button");
 const backButton = document.querySelector(".back-button");
 const quoteText = document.querySelector(".quote--text");
 const quoteName = document.querySelector(".quote--title");
+let displayedQuotes = [];
+let currentIndex = -1;
 
 const motivationalQuotes = [
   {
@@ -123,12 +125,37 @@ function getRandomQuote() {
   return motivationalQuotes[randomIndex];
 }
 
-function changeQuote() {
-  const randomQuote = getRandomQuote();
-  quoteText.textContent = randomQuote.text;
-  quoteName.textContent = randomQuote.author;
+function changeQuote(quote) {
+  quoteText.textContent = quote.text;
+  quoteName.textContent = quote.author;
 }
 
-nextButton.addEventListener("click", changeQuote);
+function showNextQuote() {
+  // If we are at the last displayed quote, generate a new one
+  if (currentIndex === displayedQuotes.length - 1) {
+    const newQuote = getRandomQuote();
+    displayedQuotes.push(newQuote);
+    currentIndex++;
+  } else {
+    // Otherwise, just move to the next quote in history
+    currentIndex++;
+  }
+  changeQuote(displayedQuotes[currentIndex]);
+}
 
-changeQuote();
+function showPreviousQuote() {
+  // Check if there is a previous quote to show
+  if (currentIndex > 0) {
+    currentIndex--;
+    changeQuote(displayedQuotes[currentIndex]);
+  } else {
+    console.log("No more previous quotes!");
+  }
+}
+
+// Event listeners for the buttons
+nextButton.addEventListener("click", showNextQuote);
+backButton.addEventListener("click", showPreviousQuote);
+
+// Display the first random quote initially
+showNextQuote();

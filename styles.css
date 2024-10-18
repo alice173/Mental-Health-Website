@@ -6,6 +6,7 @@
   --pink: 11 38 68;
   --beige-light: 64 60 95;
   --black: 132 12 8;
+  --darkpink: color-mix(in hsl, hsl(var(--pink)), black 50%);
 
   /* colour intentions */
   --background: linear-gradient(to top, hsl(var(--beige)), transparent);
@@ -14,6 +15,7 @@
   --textLink: hsl(var(--green));
   --lineColour: hsl(var(--beige));
   --quoteColour: hsl(var(--pink));
+  --titleColour: var(--darkpink);
 
   --font-display: "Merriweather", serif;
   --font-body: "Karla", sans-serif;
@@ -388,6 +390,7 @@ nav {
 
   .card--heading {
     font-size: var(--fs-md);
+    
 
   }
 
@@ -418,7 +421,7 @@ nav {
 
 }
 
-@container card (min-width: 800px) {
+@container card (min-width: 650px) {
   .card {
    display: grid;
    grid-template-columns: 2fr 3fr;
@@ -439,6 +442,10 @@ nav {
 
    }
 
+   .card--heading, li strong {
+    color: var(--titleColour);
+   }
+
    & > *:not(.card--img) {
     grid-column: 2;
    }
@@ -449,6 +456,26 @@ nav {
 
    .card--list {
     display: block;
+
+
+    li {
+      margin-block-end: var(--space-xs);
+      list-style: none;
+      position: relative;
+      &:before{
+        content: '';
+        display: block;
+        aspect-ratio: 1;
+        width: 3px;
+        border-radius: 50%;
+        background-color: hsl(var(--pink));
+        position: absolute;
+        left: -10px;
+        top: 10%;
+        
+   
+      }
+    }
    }
   }
   
@@ -474,7 +501,7 @@ nav {
 }
 
 .quote--title {
-  color: color-mix(in hsl, var(--quoteColour), black 50%);
+  color: var(--titleColour);
   font-size: var(--fs-lg);
   text-align: right;
 ;
@@ -493,7 +520,7 @@ nav {
   
 }
 
-.previous-button {
+.back-button {
   left: 0;
   translate: -100px -120%;
 
