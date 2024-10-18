@@ -545,13 +545,12 @@ nav {
 }
 
 .organisation {
-  --line-width: 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: var(--space-sm);
-  border: var(--border);
+  border: 1px var(--titleColour) solid;
   padding: var(--space-sm);
   border-radius: var(--border-radius);
  
