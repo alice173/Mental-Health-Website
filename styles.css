@@ -363,7 +363,7 @@ nav {
 }
 
 .menu-button {
-  display: block;
+  display: none;
 }
 .close-button {
   display: none;
@@ -376,8 +376,8 @@ nav {
     height: 50vh;
     padding: 3rem;
     background-color: var(--titleColour);
-    display: none;
-
+    transform: translateY(-100%);
+    transition: transform 600ms ease-in-out;
     ul {
       flex-direction: column;
       justify-content: center;
@@ -395,6 +395,10 @@ nav {
     }
   }
 
+  nav[data-visible="true"] {
+    transform: translateY(0%);
+  }
+
   .close-button {
     display: block;
     position: absolute;
@@ -404,12 +408,12 @@ nav {
     border: none;
     margin: 1rem;
   }
-}
 
-.menu-button {
-  display: block;
-  border: none;
-  background: transparent;
+  .menu-button {
+    display: block;
+    border: none;
+    background: transparent;
+  }
 }
 
 /* cards */

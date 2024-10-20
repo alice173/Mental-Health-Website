@@ -3,13 +3,18 @@
 const primaryNav = document.getElementById("primary-navigation");
 const closeButton = document.querySelector(".close-button");
 const menuButton = document.querySelector(".menu-button");
+const visibility = primaryNav.getAttribute("data-visible");
 
 menuButton.addEventListener("click", () => {
-  primaryNav.style.display = "block";
+  if (visibility === "false") {
+    primaryNav.setAttribute("data-visible", true);
+    menuButton.setAttribute("aria-expanded", true);
+  }
 });
 
 closeButton.addEventListener("click", () => {
-  primaryNav.style.display = "none";
+  primaryNav.setAttribute("data-visible", false);
+  menuButton.setAttribute("aria-expanded", false);
 });
 
 const largeCard = document.querySelector(".large-card");
