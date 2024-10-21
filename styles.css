@@ -9,7 +9,11 @@
   --darkpink: color-mix(in hsl, hsl(var(--pink)), black 50%);
 
   /* colour intentions */
-  --background: linear-gradient(to top, hsl(var(--beige)), transparent);
+  --background: linear-gradient(
+    to top,
+    hsl(var(--beige)),
+    hsl(var(--beige-light) / 0.5)
+  );
   --textColour: hsl(var(--black));
   --textColour-inverse: hsl(var(--beige));
   --textLink: hsl(var(--green));
@@ -25,6 +29,8 @@
   /*styles */
   --border: var(--lineWidth, 1px) solid var(--lineColour);
   --border-radius: 4px;
+  --nav-height: 4rem;
+  --section-padding: var(--space-xxl);
 
   /* font sizes */
 
@@ -173,7 +179,7 @@ select {
 }
 
 section {
-  padding-block: var(--space-xxl);
+  padding-block: var(--section-padding);
 }
 
 .equal-grid {
@@ -293,6 +299,9 @@ body {
 /* header */
 
 .hero {
+  margin-block-start: calc(
+    var(--nav-height) + var(--section-padding) - var(--space-sm)
+  );
   background-image: linear-gradient(
       to right,
       color-mix(in hsl, hsl(var(--green)), black 50%),
@@ -333,6 +342,7 @@ body {
 /*navigation */
 
 .nav--wrapper {
+  padding-inline: 15ch;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -556,7 +566,7 @@ nav {
 }
 
 ::view-transition-group(root) {
-  animation-duration: 1.4s;
+  animation-duration: 0.8s;
   animation-timing-function: ease-in;
 }
 
