@@ -26,13 +26,15 @@ function swapContent() {
   const screenWidth = window.innerWidth;
 
   if (screenWidth > 650) {
-    const tempContent = largeCard.innerHTML;
-    largeCard.innerHTML = smallCard.innerHTML;
-    smallCard.innerHTML = tempContent;
-    signSection.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest",
+    document.startViewTransition(() => {
+      const tempContent = largeCard.innerHTML;
+      largeCard.innerHTML = smallCard.innerHTML;
+      smallCard.innerHTML = tempContent;
+      signSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
     });
   } else {
     const cardList = smallCard.querySelector(".card--list");
@@ -156,16 +158,18 @@ function changeQuote(quote) {
 }
 
 function showNextQuote() {
-  // If we are at the last displayed quote, generate a new one
-  if (currentIndex === displayedQuotes.length - 1) {
-    const newQuote = getRandomQuote();
-    displayedQuotes.push(newQuote);
-    currentIndex++;
-  } else {
-    // Otherwise, just move to the next quote in history
-    currentIndex++;
-  }
-  changeQuote(displayedQuotes[currentIndex]);
+  document.startViewTransition(() => {
+    // If we are at the last displayed quote, generate a new one
+    if (currentIndex === displayedQuotes.length - 1) {
+      const newQuote = getRandomQuote();
+      displayedQuotes.push(newQuote);
+      currentIndex++;
+    } else {
+      // Otherwise, just move to the next quote in history
+      currentIndex++;
+    }
+    changeQuote(displayedQuotes[currentIndex]);
+  });
 }
 
 function showPreviousQuote() {

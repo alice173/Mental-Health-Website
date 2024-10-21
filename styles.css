@@ -476,6 +476,21 @@ nav {
   }
 }
 
+/* .small-card {
+  &:nth-child(1) {
+    view-transition-name: card-1;
+  }
+  &:nth-child(2) {
+    view-transition-name: card-2;
+  }
+  &:nth-child(3) {
+    view-transition-name: card-3;
+  }
+  &:nth-child(4) {
+    view-transition-name: card-4;
+  }
+} */
+
 @container card (min-width: 650px) {
   .card {
     display: grid;
@@ -534,6 +549,10 @@ nav {
 
 .card-container {
   grid-column: 1/-1;
+}
+
+::view-transition-group(root) {
+  animation-duration: 300ms;
 }
 
 /* quote section */
