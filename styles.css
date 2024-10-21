@@ -3,7 +3,7 @@
 :root {
   --green: 131 14 56;
   --beige: 62 41 88;
-  --pink: 11 38 68;
+  --pink: 12 38% 68%;
   --beige-light: 64 60 95;
   --black: 132 18 23;
   --darkpink: color-mix(in hsl, hsl(var(--pink)), black 50%);
@@ -17,6 +17,7 @@
   --quoteColour: hsl(var(--green));
   --titleColour: var(--darkpink);
   --btnColor: hsl(var(--green));
+  --activeColour: var(--pink);
 
   --font-display: "Merriweather", serif;
   --font-body: "Karla", sans-serif;
@@ -325,9 +326,9 @@ body {
   }
 }
 
-/* .breakout > * {
+.breakout > * {
   grid-column: content;
-} */
+}
 
 /*navigation */
 
@@ -362,6 +363,9 @@ nav {
   }
 }
 
+.active {
+  color: #cc9a8e;
+}
 .menu-button {
   display: none;
 }
@@ -552,7 +556,8 @@ nav {
 }
 
 ::view-transition-group(root) {
-  animation-duration: 300ms;
+  animation-duration: 1.4s;
+  animation-timing-function: ease-in;
 }
 
 /* quote section */
