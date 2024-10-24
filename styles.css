@@ -326,8 +326,7 @@ body {
   max-width: 100%;
   color: var(--textColour-inverse);
   padding-block: var(--space-xxl);
-  display: grid;
-  grid-template-rows: 1fr min-content min-content 1fr;
+
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-2);
 
@@ -342,7 +341,14 @@ body {
 
   & p,
   h1 {
-    width: 40%;
+    width: min(25rem, 100%);
+  }
+
+  .hero-content {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 0.6fr min-content min-content 1fr;
+    padding-inline-start: var(--space-md);
   }
 }
 
