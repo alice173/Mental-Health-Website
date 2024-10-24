@@ -112,6 +112,7 @@ dl,
 dd,
 ul {
   margin: 0;
+  padding: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -171,40 +172,22 @@ select {
 
 /*layout */
 
-.layout,
-.full-content {
-  --gap: clamp(1rem, 6vw, 3rem);
-  --full: minmax(var(--gap), 1fr);
-  --small: min(60ch, 100% - var(--gap) * 2);
-  --content: minmax(0, 40ch);
-  --breakout: minmax(0, 20ch);
-
-  display: grid;
-  grid-template-columns:
-    [full-start] var(--full) [breakout-start] var(--breakout)
-    [content-start] var(--content)
-    [small-start] var(--small) [small-end]
-    var(--content) [content-end] var(--breakout) [breakout-end]
-    var(--full) [full-end];
+.container {
+  --max-width: 1200px;
+  --gap: var(--space-sm);
+  width: min(var(--max-width), 100% - var(--gap) * 2);
+  margin-inline: auto;
 }
 
-.layout > *,
-.full-content > *,
-.breakout > * {
-  grid-column: content;
+.container--small {
+  --max-width: 800px;
 }
 
-.small {
-  grid-column: small;
-}
-.layout > .full,
-.full-content {
-  grid-column: full;
+.container--large {
+  --max-width: 1440px;
 }
 
-.layout > .breakout {
-  grid-column: breakout;
-}
+/* .layout */
 
 section {
   padding-block: var(--section-padding);
@@ -369,11 +352,7 @@ body {
 
 /*navigation */
 
-.nav--wrapper {
-  padding-inline: 15ch;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+.nav {
   position: fixed;
   z-index: 100;
   height: 4rem;
@@ -382,6 +361,10 @@ body {
   backdrop-filter: blur(10px);
   top: 0;
   left: 0;
+}
+.nav--wrapper {
+  display: flex;
+  justify-content: space-between;
 
   padding-block: var(--space-sm);
 }
@@ -670,7 +653,7 @@ nav {
 /* link section */
 
 .mental-health-organisations {
-  --max-width: min(35ch, 12rem);
+  --max-width: 15rem;
   list-style-type: none;
 }
 
@@ -712,6 +695,12 @@ nav {
   text-transform: uppercase;
   font-size: var(--fs-sm);
   cursor: pointer;
+  transition: 0.6s all;
+
+  &:hover {
+    background: hsl(var(--pink) / 0.6);
+    color: var(--titleColour);
+  }
 }
 .button-1 {
   --btnBlend: color-mix(in hsl, var(--btnColor), white 35%);

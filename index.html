@@ -13,9 +13,10 @@
     rel="stylesheet" />
 </head>
 
-<body class="layout">
-  <header class="hero breakout">
-    <div class="nav--wrapper">
+<body>
+  <header class="hero container container--large">
+    <div class="nav">
+      <div class="nav--wrapper container">
       <button class="dark-light-btn" aria-label="change to dark theme"></button>
       <button class="menu-button" aria-controls="primary-navigation" aria-expanded="false"><img
           src="images/menu.svg"></button>
@@ -38,12 +39,14 @@
         </button>
       </nav>
     </div>
-
+    </div>
+    <div class="container">
     <h1 class="mb-md">Take the First Step Toward a Healthier Mind</h1>
-    <p class="fs-md">Understanding Mental Health, One Step at a Time</p>
+    <p class="fs-md">Understanding Mental Health, One Step at a Time</p></div>
   </header>
   <main class="full layout">
     <section class="signs" id="signs">
+      <div class="container">
       <h2 class="mb-lg">Signs and Symptoms</h2>
       <p class="sub-heading mb-xxl">Below are some of the most common mental health issues and some tips on how to
         manage them</p>
@@ -219,10 +222,11 @@
           <button aria-label="click to expand card and read tips on managing this condition"
             class="link-text card--button">Explore tips</button>
         </div>
-      </div>
+      </div></div>
     </section>
     </section>
-    <section class="quotes full-content" id="inspiration">
+    <section class="quotes" id="inspiration">
+      <div class="container container--small">
       <h2 class="mb-lg">Inspiration</h2>
       <p class="sub-heading mb-xxl">Scroll through the quotes to find comfort and inspiration</p>
       <div class="quote--wrapper small"><q class="quote--text mb-lg">You are stronger than you know. More capable than
@@ -231,8 +235,10 @@
         <button class="arrow next-button"><img src="images/arrow_back.svg" /></button>
         <button class=" arrow back-button"><img src="images/arrow_back.svg" /></button>
       </div>
+    </div>
     </section>
     <section class="link--section" id="helpful-links">
+      <div class="container">
       <h2 class="mb-lg">Helpful Links</h2>
       <p class="sub-heading mb-xxl">The following organisations offer help and support to those struggling with mental
         health issues</p>
@@ -323,7 +329,7 @@
         </li>
       </ul>
 
-
+    </div>
     </section>
   </main>
   <script src="javascript/index.js"></script>
