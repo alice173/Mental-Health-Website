@@ -4,6 +4,9 @@ const primaryNav = document.getElementById("primary-navigation");
 const closeButton = document.querySelector(".close-button");
 const menuButton = document.querySelector(".menu-button");
 const visibility = primaryNav.getAttribute("data-visible");
+const modeToggle = document.querySelector(".dark-light-btn");
+const html = document.querySelector("html");
+const colourMode = html.getAttribute("data-theme");
 
 menuButton.addEventListener("click", () => {
   if (visibility === "false") {
@@ -44,4 +47,20 @@ document.addEventListener("DOMContentLoaded", function () {
   sections.forEach((section) => {
     observer.observe(section);
   });
+});
+
+// dark mode toggle
+
+modeToggle.addEventListener("click", () => {
+  const currentMode = html.getAttribute("data-theme");
+
+  if (currentMode === "light") {
+    html.setAttribute("data-theme", "dark");
+    modeToggle.style.backgroundImage = "url(images/light-mode.svg)";
+    modeToggle.setAttribute("aria-label", "change to light theme");
+  } else {
+    html.setAttribute("data-theme", "light");
+    modeToggle.style.backgroundImage = "url(images/dark-mode.svg)";
+    modeToggle.setAttribute("aria-label", "change to dark theme");
+  }
 });

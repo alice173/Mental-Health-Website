@@ -62,6 +62,34 @@
     0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
+[data-theme="light"] {
+  --background: linear-gradient(
+    to top,
+    hsl(var(--beige)),
+    hsl(var(--beige-light) / 0.5)
+  );
+  --textColour: hsl(var(--black));
+  --textColour-inverse: hsl(var(--beige));
+  --textLink: hsl(var(--green));
+  --lineColour: hsl(var(--beige));
+  --quoteColour: hsl(var(--green));
+  --titleColour: var(--darkpink);
+  --btnColor: hsl(var(--green));
+  --activeColour: var(--pink);
+}
+
+[data-theme="dark"] {
+  --background: hsl(64 60 5);
+  --textColour: hsl(var(--beige));
+  --textColour-inverse: hsl(var(--beige));
+  --textLink: hsl(var(--green));
+  --lineColour: hsl(var(--beige));
+  --quoteColour: hsl(var(--green));
+  --titleColour: hsl(var(--pink));
+  --btnColor: hsl(var(--green));
+  --activeColour: var(--pink);
+}
+
 /* Reset */
 
 /* Box sizing rules */
@@ -381,6 +409,15 @@ nav {
 }
 .close-button {
   display: none;
+}
+
+.dark-light-btn {
+  border: none;
+  background: transparent;
+  background-image: url(images/dark-mode.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 24px;
 }
 
 @media (max-width: 600px) {
