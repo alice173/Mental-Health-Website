@@ -516,21 +516,6 @@ nav {
   }
 }
 
-/* .small-card {
-  &:nth-child(1) {
-    view-transition-name: card-1;
-  }
-  &:nth-child(2) {
-    view-transition-name: card-2;
-  }
-  &:nth-child(3) {
-    view-transition-name: card-3;
-  }
-  &:nth-child(4) {
-    view-transition-name: card-4;
-  }
-} */
-
 @container card (min-width: 650px) {
   .card {
     display: grid;
@@ -617,6 +602,12 @@ nav {
   text-align: center;
   display: block;
   padding-inline: var(--space-sm);
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+
+  &.active {
+    opacity: 1;
+  }
 }
 
 .quote--title {

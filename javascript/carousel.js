@@ -94,23 +94,29 @@ function getRandomQuote() {
 }
 
 function changeQuote(quote) {
-  quoteText.textContent = quote.text;
-  quoteName.textContent = quote.author;
+  quoteText.classList.remove("active");
+
+  setTimeout(() => {
+    quoteName.textContent = quote.author;
+    quoteText.textContent = quote.text;
+    quoteText.classList.add("active");
+  }, 500); // Match this duration with the CSS transition duration
 }
 
 function showNextQuote() {
-  document.startViewTransition(() => {
-    // If we are at the last displayed quote, generate a new one
-    if (currentIndex === displayedQuotes.length - 1) {
-      const newQuote = getRandomQuote();
-      displayedQuotes.push(newQuote);
-      currentIndex++;
-    } else {
-      // Otherwise, just move to the next quote in history
-      currentIndex++;
-    }
-    changeQuote(displayedQuotes[currentIndex]);
-  });
+  // If we are at the last displayed quote, generate a new one
+  if (currentIndex === displayedQuotes.length - 1) {
+    const newQuote = getRandomQuote();
+    displayedQuotes.push(newQuote);
+
+    quoteText.classList.remove("active");
+    quoteText.classList.add("active");
+    currentIndex++;
+  } else {
+    // Otherwise, just move to the next quote in history
+    currentIndex++;
+  }
+  changeQuote(displayedQuotes[currentIndex]);
 }
 
 function showPreviousQuote() {
